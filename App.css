@@ -1,0 +1,275 @@
+.background-image {
+  background-image: url('https://www.metoffice.gov.uk/binaries/content/gallery/metofficegovuk/hero-images/science/weather-forecast-background.jpg');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute; /* or 'fixed' if you don't want it to scroll with the page */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 150vh;
+  width: 100vw;
+}
+
+.dashboard-header {
+  color: #fff;
+  padding: 8px;
+  text-align: left;
+  display: flex;
+  align-items: center; 
+  justify-content: start;
+}
+
+.dashboard-logo {
+  height: 40px; 
+  margin-right: 10px; 
+  
+}
+
+.dashboard-navbar ul {
+  list-style: none;
+  padding: 0;
+  margin : 0;
+  text-align: left;
+  display: block;
+  gap: 1em; /* Space between nav items */
+}
+
+.dashboard-navbar li  {
+  padding: 8px;
+  margin: 8px 0;
+  color: white;
+  font-size: 25px;
+}
+
+.dashboard-navbar li a {
+  color: inherit; /* Use the same color as the li element */
+  text-decoration: none;
+  display: block; /* Make the links fill the li elements */
+}
+
+.dashboard-navbar li:hover {
+  background-color: #646cff; /* Hover background color */
+  border-radius: 5px; /* Rounded corners on hover */
+}
+
+.card-section {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Card shadow, adjusted for visibility */
+  border-radius: 10px; /* Rounded corners for the card */
+  padding: 1em; /* Space inside the card */
+  color: #fff; /* Text color */
+  width: 250px; /* Set a fixed width */
+  position: fixed; /* Make it stay in place when scrolling */
+  height: 100vh; /* Full height */
+  overflow-y: auto; /* Enable scrolling if content is too long */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  padding-top: 60px;
+}
+
+.weather-card {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Card shadow */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Space inside the card */
+  color: #fff; /* Text color */
+  width: 40%; /* Increase width */
+  max-width: 1200px; /* Optional: prevent it from becoming too wide */
+  margin: 50px auto; /* Center the card */
+  display: flex; /* Layout children in a row */
+  flex-wrap: wrap; /* Allow items to wrap if the screen is narrow */
+  gap: 20px; /* Space between cards */
+  justify-content: center; /* Center cards in the container */
+  /* Center the card horizontally */
+  margin-left: auto;
+  margin-right: 50%;
+  margin-bottom: 20px auto;
+  
+  /* Center the card vertically */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+ 
+  flex-direction: content; /* Stack child elements (the list items) vertically */
+  align-items: center; 
+}
+
+.weather-card ul {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  display: contents; /* Ensure list items are in a row */
+  gap: 20px; /* Space between list items */
+  flex-wrap: wrap; /* Wrap items to next line on small screens */
+  width: 100%; /* Ensure the list takes up the full width of its parent */
+}
+
+.weather-card li {
+  background: rgba(255, 255, 255, 0.1); /* Light background for each card */
+  padding: 10px; /* Padding inside each card */
+  border-radius: 10px; /* Rounded corners for cards */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  flex-basis: calc(33.333% - 20px); /* Take up a third of the space, minus gap */
+  display: flex; /* Use flex to align content */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center-align the content */
+  text-align: center; /* Ensure text is centered */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .weather-card li {
+    flex-basis: calc(50% - 20px); /* Each item takes up half the width on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-card li {
+    flex-basis: 100%; /* Stack items vertically on very small screens */
+  }
+}
+
+
+/* Container for summary cards */
+.summary-cards-container {
+  display: flex; /* Use flexbox to lay out summary cards horizontally */
+  justify-content: center; /* Center cards within the container */
+  gap: 20px; /* Space between cards */
+  flex-wrap: wrap; /* Allow cards to wrap to next line on small screens */
+  margin: 20px 0 20px 0; /* Vertical margin for the container */
+}
+
+/* Individual summary cards */
+.summary-card {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Card shadow */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Space inside the card */
+  color: #fff; /* White text color */
+  margin-bottom: 20px; /* Margin at the bottom of each card */
+  width: 10%; /* Width of each card */
+  text-align: center; /* Center text within the card */
+  /* Remove flex properties that were here */
+}
+
+/* Ensure cards don't get too small on smaller screens */
+@media (max-width: 768px) {
+  .summary-card {
+    width: 45%; /* Adjust width to allow two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .summary-card {
+    width: 90%; /* Adjust width to have cards stack vertically on very small screens */
+  }
+}
+
+.search-and-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.search-and-filter input[type="date"],
+.search-and-filter input[type="range"] {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.search-and-filter button {
+  padding: 5px 15px;
+  background-color: #646cff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-and-filter button:hover {
+  background-color: #575ed8;
+}
+
+.chart-container {
+  width: 100%; /* Takes full width of the flex item */
+  max-width: 500px; /* Adjust max-width as needed, 500px as an example */
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5); /* Other styles remain unchanged */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  color: #fff;
+  /* Removed the margin that was pushing it too far down */
+}
+
+/* Clear any specific heights that may be set elsewhere for .weather-card or .chart-container */
+.weather-card,
+.chart-container {
+  height: auto;
+}
+
+.content-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 70%;
+  align-items: flex-start; /* Aligns items at the top of the container */
+  gap: 2000px; /* Space between the weather cards and the charts */
+}
+
+/* CSS for ForecastDetails.jsx */
+
+/* This will be the container for your card, ensuring it's centered horizontally and vertically */
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Use full height to center vertically */
+}
+
+/* The card itself */
+.detail-card {
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for some depth */
+  border-radius: 15px; /* Rounded corners for the card */
+  padding: 2rem; /* Spacing inside the card */
+  max-width: 600px; /* Maximum width of the card */
+  width: 100%; /* Full width within the max-width limit */
+  margin: auto; /* Additional centering for older browsers */
+  text-align: center; /* Center the text */
+  color: #333; /* Dark text color for readability */
+  box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* You might have other elements like headers, paragraphs, etc. inside your card */
+.detail-card h1 {
+  margin-top: 0;
+  color: #444;
+}
+
+.detail-card p {
+  color: #666;
+  line-height: 1.6; /* More readable line spacing */
+}
+
+/* If you have buttons or links, you can style them too */
+.detail-card a {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: #007bff; /* Bootstrap primary color */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.detail-card a:hover {
+  background: #0056b3; /* A darker shade for hover state */
+}
+
+
+
